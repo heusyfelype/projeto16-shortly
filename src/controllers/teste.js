@@ -9,7 +9,7 @@ export async function teste(req, res){
         `);
 
         console.log(tryTest)
-        return res.send("ok!");
+        return res.send(tryTest);
 
     }catch(e){
         return res.status(500).send(e)

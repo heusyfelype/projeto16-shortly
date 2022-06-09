@@ -5,14 +5,12 @@ export async function signUpcontroller(req, res){
     
     const {name, email, password} = req.body
 
-    password = bcrypt.hashSync(password, 10)
+    let bcryptPassword = bcrypt.hashSync(password, 10)
 
-    console.log(password);
-        
     try{
         await connectionDB.query(`
             INSERT INTO "users" ("name", "email", "password") VALUES ($1, $2, $3)
-        `, [`${name}`, `${email}`, `${password}`]);
+        `, [`${name}`, `${email}`, `${bcryptPassword}`]);
 
         return res.sendStatus(201);
 

@@ -4,7 +4,7 @@ CREATE TABLE "users" (
 	"email" TEXT NOT NULL UNIQUE,
 	"password" TEXT NOT NULL,
     "createdAt" TIMESTAMP DEFAULT NOW()
-)
+);
 
 CREATE TABLE "links" (
 	"id" serial NOT NULL PRIMARY KEY,
@@ -13,11 +13,11 @@ CREATE TABLE "links" (
 	"acessos" integer NOT NULL,
 	"userId" integer NOT NULL REFERENCES "users"("id"),
     "createdAt" TIMESTAMP DEFAULT NOW()
-) 
+) ;
 
 CREATE TABLE "autorizacao" (
 	"id" serial NOT NULL PRIMARY KEY,
 	"userId" integer NOT NULL,
 	"token" TEXT NOT NULL,
     "createdAt" TIMESTAMP DEFAULT NOW()
-)
+);

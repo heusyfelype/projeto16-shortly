@@ -1,8 +1,11 @@
 import connectionDB from "../postgresConnect.js";
+import bcrypt from 'bcrypt';
 
 export async function signUpcontroller(req, res){
     
     const {name, email, password} = req.body
+
+    password = bcrypt.hashSync(password, 10)
 
     try{
         await connectionDB.query(`

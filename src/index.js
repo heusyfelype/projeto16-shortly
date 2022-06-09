@@ -14,7 +14,7 @@ app.use(cors());
 app.use(json());
 
 app.use(testRoute);
-app.use(testRoute);
+app.use(postSignUpRouter);
 
 const PORT = process.env.PORT;
 app.listen(process.env.PORT, () => {

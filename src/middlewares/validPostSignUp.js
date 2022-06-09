@@ -6,7 +6,7 @@ export function validPostSignUp(req, res, next){
     const isValidPostSignUp = postSignUpSchema.validate(infosSignUp, { abortEarly: false });
 
     if(isValidPostSignUp.error){
-        return res.status(422).send(isValidPostSignUp.error)
+        return res.status(422).send(isValidPostSignUp.error.details[0].message)
     };
 
     next();

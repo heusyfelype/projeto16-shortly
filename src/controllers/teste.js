@@ -12,6 +12,6 @@ export async function teste(req, res){
         return res.send(tryTest);
 
     }catch(e){
-        return res.status(500).send(e)
+        return res.status(500).send(e.detail)
     }
 }

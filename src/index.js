@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 
 
 import testRoute from './routers/testRouter.js';
+import postSignUpRouter from './routers/postSignUpRouter.js';
 
 
 dotenv.config();
@@ -12,6 +13,7 @@ const app = express();
 app.use(cors());
 app.use(json());
 
+app.use(testRoute);
 app.use(testRoute);
 
 const PORT = process.env.PORT;

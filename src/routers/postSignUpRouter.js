@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 
-import { validPostSignUp } from "../middlewares/validPostSignUp";
+import { validPostSignUp } from "../middlewares/validPostSignUp.js";
 
 const postSignUpRouter = Router();
 

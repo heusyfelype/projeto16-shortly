@@ -1,4 +1,4 @@
-import postSignUpSchema from "./schemas/postSignUpSchema";
+import postSignUpSchema from "./schemas/postSignUpSchema.js";
 
 export function validPostSignUp(req, res, next){
     const infosSignUp = req.body;

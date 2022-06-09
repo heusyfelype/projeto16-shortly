@@ -1,4 +1,4 @@
-import connectionDB from "../postgresConnect";
+import connectionDB from "../postgresConnect.js";
 
 export async function signUpcontroller(req, res){
     

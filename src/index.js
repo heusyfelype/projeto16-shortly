@@ -9,6 +9,8 @@ import postSignUpRouter from './routers/postSignUpRouter.js';
 import postSignInRouter from './routers/postSignInRouter.js';
 import postShortenRouter from './routers/postShortenRouter.js';
 import getUrlsIdRouter from './routers/getUrlsIdRouter.js';
+import getUrlsOpenRouter from './routers/getUrlsOpenRouter.js';
+import deleteRouter from './routers/deleteRouter.js';
 
 
 
@@ -22,6 +24,9 @@ app.use(postSignUpRouter);
 app.use(postSignInRouter);
 app.use(postShortenRouter);
 app.use(getUrlsIdRouter);
+app.use(getUrlsOpenRouter);
+app.use(deleteRouter);
+
 
 const PORT = process.env.PORT;
 app.listen(process.env.PORT, () => {

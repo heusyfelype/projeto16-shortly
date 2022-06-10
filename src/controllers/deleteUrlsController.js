@@ -13,10 +13,10 @@ export async function deleteUrlsController(req, res) {
             SELECT * FROM links WHERE "id" = $1
         `, [id])
         if (!link.rowCount) {
+            console.log("ta caindo aqui", "link.rows[0].userId: " + link.rows[0].userId, " userId: " + userId)
             return res.sendStatus(404);
         }
         if (link.rows[0].userId !== userId) {
-            console.log("ta caindo aqui", "link.rows[0].userId: " + link.rows[0].userId, " userId: " + userId)
             return res.sendStatus(401);
         }
 

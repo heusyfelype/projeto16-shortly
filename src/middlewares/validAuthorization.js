@@ -1,6 +1,10 @@
-export function validAuthorization(req, res, next) {
-    const authorization = req.headers.authorization;
-    const id = req.headers.id;
+import connectionDB from "../postgresConnect.js";
+
+
+export async function validAuthorization(req, res, next) {
+    let authorization = req.headers.authorization;
+    authorization = authorization?.replace("Bearer ", "").trim()
+    const id = parseInt(req.headers.id);
     //const token = authorization?.replace("Bearer ", "").trim(); 
 
     if (!authorization) {
@@ -12,5 +16,21 @@ export function validAuthorization(req, res, next) {
 
     //talvez aqui tenha que colocar um "try select nam from users where id = is"
 
-    next();
+    try{
+        let userSection = await connectionDB.query(`
+            SELECT * FROM autorizacao WHERE "userId" = $1 AND "token" = $2
+         
+        `, [id, `${authorization}`])
+
+        if(!userSection.rowCount){
+            return res.sendStatus(401);
+        }
+
+        next();
+
+    }catch(e){
+        return res.status(500).send(e.detail)
+    }
+
+    
 }

@@ -1,0 +1,22 @@
+### para ambiente de desenvolvimento / bd local
+
+PG_HOST = localhost
+PG_PORT = 5432
+PG_USER = usuário do postgres
+PG_PASS = senha do postgres
+PG_DB = nome do baco de dados - shortly
+
+
+
+
+
+
+### para deploy
+
+DATABASE_URL= url do banco de dados
+
+HEROKU_URL = url para as requisições
+
+PORT = numero da porta
+
+MODE = DEV || qualquer outra coisa coisa

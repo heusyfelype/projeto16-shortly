@@ -12,6 +12,10 @@ export async function getUsersController(req, res) {
             GROUP BY (u.name, u.id)
         `, [userId]);
 
+        if(!infosUser.rowCount){
+            return res.sendStatus(404);
+        }
+
         const allLinks = await connectionDB.query(`
             SELECT * FROM links WHERE "userId" = $1
         `, [userId]);

@@ -10,7 +10,7 @@ CREATE TABLE "links" (
 	"id" serial NOT NULL PRIMARY KEY,
 	"linkOriginal" TEXT NOT NULL,
 	"linkEncurtado" TEXT NOT NULL UNIQUE,
-	"acessos" integer NOT NULL,
+	"acessos" integer NOT NULL DEFAULT 0,
 	"userId" integer NOT NULL REFERENCES "users"("id"),
  "createdAt" TIMESTAMP DEFAULT NOW()
 ) 

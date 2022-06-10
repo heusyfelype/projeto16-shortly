@@ -7,6 +7,8 @@ import dotenv from 'dotenv';
 import testRoute from './routers/testRouter.js';
 import postSignUpRouter from './routers/postSignUpRouter.js';
 import postSignInRouter from './routers/postSignInRouter.js';
+import postShortenRouter from './routers/postShortenRouter.js';
+
 
 
 dotenv.config();
@@ -17,6 +19,7 @@ app.use(json());
 app.use(testRoute);
 app.use(postSignUpRouter);
 app.use(postSignInRouter);
+app.use(postShortenRouter);
 
 const PORT = process.env.PORT;
 app.listen(process.env.PORT, () => {

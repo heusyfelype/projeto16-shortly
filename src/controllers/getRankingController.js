@@ -8,11 +8,11 @@ export async function getRankingController(req, res){
             SELECT u.id, 
             u.name, 
             COUNT(l.acessos) AS "linksCount", 
-            SUM(l.acessos) AS "visitCount"  
-            FROM links l 
-            LEFT JOIN users u ON u."id" = l."userId" 
-            GROUP BY ("userId", u.id, u.name) 
-            ORDER BY ("visitCount") DESC 
+            SUM(l.acessos) AS "visitCount" 
+            FROM users u 
+            LEFT JOIN links l ON l."userId" = u."id" 
+            GROUP BY ("userId", u.id, u.name)
+            ORDER BY ("visitCount") DESC NULLS LAST
             LIMIT 10
         `);
 
